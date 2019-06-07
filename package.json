@@ -11,13 +11,18 @@
     "transpile": "babel src --out-dir dist -s",
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run transpile",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "start:dev": "npm run build && nodemon --exec babel-node src/index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
-    "express": "^4.17.1"
+    "chalk": "^2.4.2",
+    "chalk-console": "^1.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
   }
 }
