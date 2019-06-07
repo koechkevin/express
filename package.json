@@ -7,6 +7,12 @@
   "author": "koechkevin",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "transpile": "babel src --out-dir dist -s",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run transpile",
+    "start": "node dist/index.js"
+  },
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
