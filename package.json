@@ -12,7 +12,10 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run transpile",
     "start": "node dist/index.js",
-    "start:dev": "npm run build && nodemon --exec babel-node src/index.js"
+    "start:dev": "NODE_ENV=development npm run build && nodemon --exec babel-node src/index.js",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "seed": "node_modules/.bin/sequelize db:seed:all",
+    "test": "NODE_ENV=test jest --coverage"
   },
   "dependencies": {
     "@babel/cli": "^7.4.4",
@@ -20,9 +23,17 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "chalk": "^2.4.2",
     "chalk-console": "^1.1.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "nodemon": "^1.19.1"
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.8.8",
+    "sequelize-cli": "^5.5.0",
+    "supertest": "^4.0.2"
   }
 }
